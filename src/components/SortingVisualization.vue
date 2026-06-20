@@ -89,9 +89,6 @@
                 <button class="btn" @click="nextStep" :disabled="currentStepIndex >= steps.length - 1 || (isRunning && !isPaused)">
                   <i class="fas fa-step-forward"></i> 下一步
                 </button>
-                <button class="btn" @click="autoPlay" :disabled="currentStepIndex >= steps.length - 1 || (isRunning && !isPaused)">
-                  <i class="fas fa-play"></i> 自动播放
-                </button>
               </div>
               <div class="step-description">
                 <p>{{ stepDescription }}</p>
