@@ -83,13 +83,13 @@
 
             <div class="step-controller">
               <div class="step-buttons">
-                <button class="btn" @click="prevStep" :disabled="currentStepIndex <= 0 || isRunning">
+                <button class="btn" @click="prevStep" :disabled="currentStepIndex <= 0 || (isRunning && !isPaused)">
                   <i class="fas fa-step-backward"></i> 上一步
                 </button>
-                <button class="btn" @click="nextStep" :disabled="currentStepIndex >= steps.length - 1 || isRunning">
+                <button class="btn" @click="nextStep" :disabled="currentStepIndex >= steps.length - 1 || (isRunning && !isPaused)">
                   <i class="fas fa-step-forward"></i> 下一步
                 </button>
-                <button class="btn" @click="autoPlay" :disabled="currentStepIndex >= steps.length - 1 || isRunning">
+                <button class="btn" @click="autoPlay" :disabled="currentStepIndex >= steps.length - 1 || (isRunning && !isPaused)">
                   <i class="fas fa-play"></i> 自动播放
                 </button>
               </div>
