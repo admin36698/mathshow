@@ -127,7 +127,7 @@
               <button class="btn btn-primary" @click="startDP" :disabled="isRunning">
                 {{ isRunning ? '运行中...' : '开始计算' }}
               </button>
-              <button class="btn" @click="pauseDP" :disabled="!isRunning">暂停</button>
+              <button class="btn" @click="pauseDP" :disabled="!isRunning">{{ isPaused ? '开始' : '暂停' }}</button>
               <button class="btn" @click="resetDP">重置</button>
             </div>
 

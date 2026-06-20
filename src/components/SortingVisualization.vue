@@ -34,7 +34,7 @@
             <div class="control-buttons">
               <button class="btn" @click="generateNewArray" :disabled="isRunning">生成新数组</button>
               <button class="btn btn-primary" @click="startSorting" :disabled="isRunning">开始排序</button>
-              <button class="btn" @click="pauseSorting" :disabled="!isRunning">暂停</button>
+              <button class="btn" @click="pauseSorting" :disabled="!isRunning">{{ isPaused ? '开始' : '暂停' }}</button>
               <button class="btn" @click="resetVisualization" :disabled="isRunning">重置</button>
             </div>
 
@@ -633,6 +633,9 @@ function merge(left, right) {
     },
 
     nextStep() {
+      if (this.steps.length === 0) {
+        this.recordSteps()
+      }
       if (this.currentStepIndex < this.steps.length - 1) {
         this.currentStepIndex++
         this.applyStep(this.steps[this.currentStepIndex])
@@ -640,6 +643,9 @@ function merge(left, right) {
     },
 
     prevStep() {
+      if (this.steps.length === 0) {
+        this.recordSteps()
+      }
       if (this.currentStepIndex > 0) {
         this.currentStepIndex--
         this.applyStep(this.steps[this.currentStepIndex])
